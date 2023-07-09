@@ -13,10 +13,10 @@ package Q6;
  *
  * @author nazal
  */
-public class box extends rectangle{
+public class Box extends Rectangle{
     double height,volume;
     
-    public box(double height){
+    public Box(double height){
         this.height = height;
     }
     void calcVol(){

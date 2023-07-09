@@ -7,10 +7,10 @@ package Q4;
  *
  * @author nazal
  */
-public class complexOperations {
+public class ComplexOperations {
     
-    public static void add(complex a,complex b){
-        complex total = new complex();
+    public static void add(Complex a,Complex b){
+        Complex total = new Complex();
         total.real = a.get_real()+b.get_real();
         total.imaginary = a.get_imag()+b.get_imag();
         
@@ -18,15 +18,15 @@ public class complexOperations {
         total.print();
     }
     
-    public static void multiply(complex a, complex b){
-        complex mult = new complex();
+    public static void multiply(Complex a, Complex b){
+        Complex mult = new Complex();
         mult.real = a.get_real()*b.get_real() - a.get_imag()*b.get_imag();
         mult.imaginary = a.get_real()*b.get_imag() + a.get_imag()*b.get_real();
         System.out.print("The multiplication of the complex numbers are : ");
         mult.print();
     }
     
-    public static void modulus(complex a){
+    public static void modulus(Complex a){
         double moduli = Math.sqrt(a.get_real()*a.get_real()+a.get_imag()*a.get_imag());
         System.out.println("The modulus of the complex number is : "+moduli);
     }

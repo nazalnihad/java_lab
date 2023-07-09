@@ -8,16 +8,34 @@
 //square prism) three parameters (rectangular prism). Also provide functions to calculate area
 //and volume. 
 package Q5;
+import java.util.Scanner;
 
 /**
  *
  * @author nazal
  */
-public class Q5 {
+public class Q5_main {
     public static void main(String[] args){
-        box cube = new box(5);
-        box squarePrism = new box(5,10);
-        box cuboid = new box(5,10,20);
+        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("\nEnter the side length for the cube: ");
+        double cube_length = sc.nextDouble();
+        Box cube = new Box(cube_length);
+
+        System.out.print("\nEnter the length for the square prism: ");
+        double length = sc.nextDouble();
+        System.out.print("Enter the width for the square prism: ");
+        double width = sc.nextDouble();
+        Box squarePrism = new Box(length, width);
+
+        System.out.print("\nEnter the length for the cuboid: ");
+        double cuboid_length = sc.nextDouble();
+        System.out.print("Enter the width for the cuboid: ");
+        double cuboid_width = sc.nextDouble();
+        System.out.print("Enter the height for the cuboid: ");
+        double cuboid_height = sc.nextDouble();
+        Box cuboid = new Box(cuboid_length, cuboid_width, cuboid_height);
         
         System.out.println("\n=== Cube ===");
         cube.calcArea();

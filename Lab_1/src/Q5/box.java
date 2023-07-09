@@ -13,22 +13,22 @@ package Q5;
  *
  * @author nazal
  */
-public class box {
+public class Box {
     double length,width,height;
     double area,volume;
     
-    public box(double length){
+    public Box(double length){
         this.length = length;
         this.width = length;
         this.height = length;
     }
-    public box(double length,double height){
+    public Box(double length,double height){
         this.length = length;
         this.height = height;
         this.width = length;
     }
     
-    public box(double length,double width,double height){
+    public Box(double length,double width,double height){
         this.length = length;
         this.width = width;
         this.height = height;

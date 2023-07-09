@@ -8,7 +8,7 @@ package Q4;
  *
  * @author nazal
  */
-public class complex {
+public class Complex {
     int real,imaginary;
     
     void initialise(int real,int imaginary){

@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author nazal
  */
-public class student {
+public class Student {
     
     String name;
     int rollNo,total=0;

@@ -12,7 +12,7 @@ package Q6;
 //Provide functions to find area and get back the area. Create a new class Box by extending
 //Rectangle class add two new members, height and volume and also new functions to
 //calculate and get back the volume.
-public class rectangle {
+public class Rectangle {
     
     public double length,breadth,area;
     
