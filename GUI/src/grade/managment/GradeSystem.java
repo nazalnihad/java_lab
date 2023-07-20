@@ -69,12 +69,32 @@ public class GradeSystem extends javax.swing.JFrame {
         });
 
         grades_btn.setText("Grades");
+        grades_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grades_btnActionPerformed(evt);
+            }
+        });
 
         studentAvg_btn.setText("Student Avg");
+        studentAvg_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentAvg_btnActionPerformed(evt);
+            }
+        });
 
         classAvg_btn.setText("Class Avg");
+        classAvg_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                classAvg_btnActionPerformed(evt);
+            }
+        });
 
         clear_btn.setText("Clear");
+        clear_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clear_btnActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(display);
 
@@ -137,7 +157,6 @@ public class GradeSystem extends javax.swing.JFrame {
 
     private void addStudent_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudent_btnActionPerformed
         // TODO add your handling code here:
-        Scanner sc = new Scanner(System.in);
         students[pos] = JOptionPane.showInputDialog(null, "Enter your name:", "Input Dialog", JOptionPane.PLAIN_MESSAGE);
         pos++;
         
@@ -145,11 +164,12 @@ public class GradeSystem extends javax.swing.JFrame {
 
     private void displayNames_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayNames_btnActionPerformed
         // TODO add your handling code here:
-    String studentDetails = "";
+    String studentDetails = "Name \tMark 1 \tmark 2 \n";
+    
     for (int i = 0; i < pos; i++) {
-        studentDetails += "Student Name: " + students[i] +
-                         "\tMark 1: " + mark1[i] +
-                         "\tMark 2: " + mark2[i] +
+        studentDetails +=  students[i] +
+                         "\t  " + mark1[i] +
+                         "\t  " + mark2[i] +
                          "\n";
     }
     display.setText(studentDetails);
@@ -161,16 +181,87 @@ public class GradeSystem extends javax.swing.JFrame {
         String name = JOptionPane.showInputDialog(null,"Enter the name of the student","student name",JOptionPane.PLAIN_MESSAGE);
         name = name.toLowerCase();
         for(int i=0;i<pos;i++){
-            if(students[i].equals(name.toLowerCase())){
+            if(!students[i].equalsIgnoreCase(name)){
+            } else {
                 isPresent = true;
-                mark1[i] = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter marks in subject 1 ","Subject 1",JOptionPane.PLAIN_MESSAGE));
-                mark2[i] = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter marks in subject 2 ","Subject 2",JOptionPane.PLAIN_MESSAGE));
+                mark1[i] = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter marks in subject 1 (Out of 100) ","Subject 1",JOptionPane.PLAIN_MESSAGE));
+                mark2[i] = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter marks in subject 2 (Out of 100)","Subject 2",JOptionPane.PLAIN_MESSAGE));
             }
         }
         if(!isPresent){
             JOptionPane.showMessageDialog(rootPane, "Name not found");
         }
     }//GEN-LAST:event_addMarks_btnActionPerformed
+
+    private String checkGrade(int mark){
+        if(mark>=90){
+            return "A";
+        }
+        else if(mark>=80 && mark<90){
+            return "B";
+        }
+        else if(mark>=70 && mark<80){
+            return "C";
+        }
+        else if(mark>=60 && mark<70){
+            return "D";
+        }
+        else{
+            return "F";
+        }
+    }
+    private void grades_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grades_btnActionPerformed
+        // TODO add your handling code here:
+        String details = "Name \t Grade1 \t Grade2 \n";
+        for(int i=0;i<pos;i++){
+            details+=students[i]+"\t  "+checkGrade(mark1[i])+"\t  "+checkGrade(mark2[i])+"\n";
+        }
+        display.setText(details);
+    }//GEN-LAST:event_grades_btnActionPerformed
+    
+    private int getStudent(String name){
+        for(int i=0;i<pos;i++){
+            if(name.equalsIgnoreCase(students[i])){
+                return i;
+            }
+        }
+        return -1;
+    }
+    private void studentAvg_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentAvg_btnActionPerformed
+        // TODO add your handling code here:
+        String details = "Name \t Avg  \n";
+        String name = JOptionPane.showInputDialog(null,"Enter student name ","Student",JOptionPane.PLAIN_MESSAGE);
+        int index = getStudent(name);
+        if(index != -1){
+            double avg = (mark1[index]+mark2[index])/2;
+            details+=students[index]+"\t"+avg+"\n";
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "Name not found");
+        }
+        display.setText(details);
+    }//GEN-LAST:event_studentAvg_btnActionPerformed
+
+    private double studentAvg(int index){
+        double avg = mark1[index]+mark2[index];
+        return avg;
+    }
+    private void classAvg_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classAvg_btnActionPerformed
+        // TODO add your handling code here:
+        String details = "Total average of the class is ";
+        double avg = 0;
+        for(int i=0;i<pos;i++){
+            avg+=studentAvg(i);
+        }
+        avg = avg/pos+1;
+        details+=avg/2;
+        display.setText(details);
+    }//GEN-LAST:event_classAvg_btnActionPerformed
+
+    private void clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_btnActionPerformed
+        // TODO add your handling code here:
+        display.setText("");
+    }//GEN-LAST:event_clear_btnActionPerformed
 
     /**
      * @param args the command line arguments

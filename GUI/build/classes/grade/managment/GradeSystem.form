@@ -114,21 +114,33 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Grades"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="grades_btnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="studentAvg_btn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Student Avg"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="studentAvg_btnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="classAvg_btn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Class Avg"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="classAvg_btnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="clear_btn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Clear"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clear_btnActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
