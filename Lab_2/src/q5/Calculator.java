@@ -28,8 +28,7 @@ public class Calculator extends JFrame{
         this.setSize(300, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation(500,300);
-        
-        
+              
         this.setLayout(null);
         
 //        TExt field and labels
