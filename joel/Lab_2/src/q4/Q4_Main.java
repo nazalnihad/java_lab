@@ -2,14 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package q9;
+package q4;
 
 /**
  *
  * @author nazal
  */
-public class TicTacToe_Main {
-    public static void main(String[] args) {
-     TicTacToe obj =  new TicTacToe();
+public class Q4_Main {
+    public static void main(String[] args){
+        EmployeeList obj = new EmployeeList(2);
+        obj.getEmployees();
+        obj.sortList();
+        obj.displaySorted();
     }
 }
