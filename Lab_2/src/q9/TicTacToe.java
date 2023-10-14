@@ -144,27 +144,28 @@ void checkTie(){
 }
 
 void click(int row, int col) {
-    
-        if (isEmpty(row, col) && !checkwin(player)) {
-            if(player==1){
-                choice = "X";
-            }
-            else{
-                choice ="O";
-            }
-            buttons[row][col].setText(choice);
-            arr[row][col] = player;
-            if (!checkwin(player)) {
-                if (player == 1) {
-                    player = 2;
-                    choice ="O";    
-                } else {
-                    player = 1;
-                    choice = "X";
-                }
-                label.setText(choice+" - turn");
-            }
+    if (isEmpty(row, col) && !checkwin(player)) {
+        if (player == 1) {
+            choice = "X";
+        } else {
+            choice = "O";
         }
+        buttons[row][col].setText(choice);
+        arr[row][col] = player;
+
+        if (checkwin(player)) {
+            return; 
+        }
+
+        if (player == 1) {
+            player = 2;
+            choice = "O";
+        } else {
+            player = 1;
+            choice = "X";
+        }
+        label.setText(choice + " - turn");
         checkTie();
-    }
+    } 
+}
 }

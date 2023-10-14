@@ -10,7 +10,7 @@ package q4;
  */
 public class Q4_Main {
     public static void main(String[] args){
-        EmployeeList obj = new EmployeeList(2);
+        EmployeeList obj = new EmployeeList(1);
         obj.getEmployees();
         obj.sortList();
         obj.displaySorted();
